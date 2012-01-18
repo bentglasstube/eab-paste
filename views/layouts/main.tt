@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <head>
+    <title>#eatabrick pastes</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss">
+  </head>
+  <body>
+    [% content %]
+  </body>
+</html>

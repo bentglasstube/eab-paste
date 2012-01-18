@@ -1,0 +1,12 @@
+<h1>#eatabrick pastes</h1>
+<form method="post" action="/">
+  <fieldset>
+    <label for="title">title</label>
+    <input id="title" name="title">
+    <label for="author">author</label>
+    <input id="author" name="author">
+    <label for="paste">content</label>
+    <textarea id="paste" name="paste" rows="24" cols="80"></textarea>
+    <input type="submit" value="paste">
+  </fieldset>
+</form>

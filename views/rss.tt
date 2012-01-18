@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>#eatabrick pastes</title>
+    <link>http://paste.eatabrick.org/rss</link>
+    <description>pastes for #eatabrick</description>
+    [% for entry in posts %]
+      <item>
+        <title>[% entry.title %]</title>
+        <link>http://paste.eatabrick.org/[% entry.token %]</link>
+        <author>[% entry.author %]</author>
+      </item>
+    [% end %]
+  </channel>
+</rss>

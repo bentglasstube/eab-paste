@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 1em;
+}
+
+h1 {
+  margin: 0 0 0.3em 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: oblique;
+}
+
+p {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  border: 1px solid #000;
+  background: #fff;
+}
