@@ -1,0 +1,6 @@
+<h1>all pastes by [% author | html %]</h1>
+<ul>
+  [% foreach paste in pastes %]
+  <li><a href="/[% paste.token %]">[% paste.title | html %]</a></li>
+  [% end %]
+</ul>

@@ -41,3 +41,8 @@ input {
   border: 1px solid #000;
   background: #fff;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}

@@ -32,6 +32,16 @@ get '/rss' => sub {
   template 'rss', { posts => \@pastes }, { layout => undef };
 };
 
+get '/:token.txt' => sub {
+  if (my $paste = database->quick_select(pastes => {token => params->{token}})) {
+    content_type 'text/plain';
+    return $paste->{data};
+  } else {
+    status 'not_found';
+    template '404';
+  }
+};
+
 get '/:token' => sub {
   if (my $paste = database->quick_select(pastes => {token => params->{token}})) {
     template 'view', $paste;
@@ -39,6 +49,28 @@ get '/:token' => sub {
     status 'not_found';
     template '404';
   }
+};
+
+get '/by/:author' => sub {
+  my @pastes = database->quick_select(pastes => 
+    { author => params->{author} },
+    { order_by => { desc => 'created' } },
+  );
+
+  if (@pastes) {
+    template 'list', { 
+      pastes => \@pastes,
+      author => params->{author},
+    };
+  } else {
+    status 'not_found';
+    template '404';
+  }
+};
+
+any qr{.*} => sub {
+  status 'not_found';
+  template '404';
 };
 
 true;
