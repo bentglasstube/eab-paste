@@ -12,11 +12,18 @@ my @chars = split //, 'abcdefghijklmnopqrstuvwxyz0123456789';
 post '/' => sub {
   my $token = join '', map $chars[int(rand(@chars))], 1 .. 6;
 
+  my $content;
+  if (my $file = upload('file')) {
+    $content = $file->content;
+  } else {
+    $content = params->{paste};
+  }
+
   database->quick_insert(pastes => {
     token   => $token,
     title   => params->{title} || 'untitled',
     author  => params->{author} || 'anonymous',
-    data    => params->{paste},
+    data    => $content,
     created => time,
   });
 
