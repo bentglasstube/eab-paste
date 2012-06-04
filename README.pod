@@ -1,0 +1,11 @@
+=head1 NAME
+
+eab-paste - a web application for sharing bits of text
+
+=head1 AUTHOR
+
+Alan Berndt <alan@eatabrick.org>
+
+=head1 LICENSE
+
+See LICENSE for license details.

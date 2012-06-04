@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'EABPaste',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
+    AUTHOR              => 'Alan Berndt <alan@eatabrick.org>',
     VERSION_FROM        => 'lib/EABPaste.pm',
     ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
     ($ExtUtils::MakeMaker::VERSION >= 6.3002
@@ -15,6 +15,7 @@ WriteMakefile(
         'Test::More' => 0,
         'YAML'       => 0,
         'Dancer'     => 1.3091,
+        'Dancer::Plugin::Database' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'EABPaste-*' },
