@@ -1,6 +1,7 @@
 package EABPaste;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
+use Dancer::Plugin::IRCNotice;
 
 our $VERSION = '0.1';
 
@@ -19,13 +20,18 @@ post '/' => sub {
     $content = params->{paste};
   }
 
+  my $title = params->{title} || 'untitled';
+  my $author = params->{author} || 'anonymous';
+
   database->quick_insert(pastes => {
     token   => $token,
-    title   => params->{title} || 'untitled',
-    author  => params->{author} || 'anonymous',
+    title   => $title,
+    author  => $author,
     data    => $content,
     created => time,
   });
+
+  notify("\cB$title\cB @ http://paste.eatabrick.org/$token ($author)");
 
   redirect "/$token", 303;
 };
