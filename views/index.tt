@@ -1,4 +1,4 @@
-<h1>new</h1>
+<h1>new paste</h1>
 
 <form method="post" action="/" enctype="multipart/form-data" role="form">
   <div class="row">
@@ -16,16 +16,20 @@
     </div>
   </div>
   <div class="form-group">
-    <span class="help-block">
-      either upload a file or paste content in the textarea.  if you do both
-      the file will be used and whatever you pasted will be lost forever
-    </span>
-    <label for="file">file</label>
-    <input type="file" id="file" name="file">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#text" data-toggle="tab">paste text</a></li>
+      <li><a href="#file" data-toggle="tab">upload text file</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="text">
+        <textarea class="form-control" id="paste" name="paste" rows="24"></textarea>
+      </div>
+      <div class="tab-pane" id="file">
+        <input type="file" id="file" name="file">
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="paste">content</label>
-    <textarea class="form-control" id="paste" name="paste" rows="24"></textarea>
-  </div>
+
   <button class="btn btn-default" type="submit">paste</button>
 </form>

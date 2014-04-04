@@ -22,3 +22,11 @@ ul.options li:first-child {
 h2 small {
   float: right;
 }
+
+ul.nav {
+  padding-left: 1em;
+}
+
+.tab-pane {
+  padding-top: 1em;
+}
