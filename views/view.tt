@@ -1,3 +1,8 @@
-<h1>[% title | html %]</h1>
-<h2>by [% author | html %]</h2>
-<p>[% data | html %]</p>
+<h1>[% title | html %] <small>by <a href="/by/[% author | url %]">[% author | html %]</a></small></h1>
+
+<pre>[% data | html %]</pre>
+
+<ul class="options">
+  <li><a href="[% token %].txt">view raw</a></li>
+  <li><a href="[% token %].txt" download="[% title | url %].txt">download</a></li>
+</ul>

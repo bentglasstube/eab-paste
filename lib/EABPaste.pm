@@ -42,7 +42,33 @@ get '/rss' => sub {
     order_by => { desc => 'created' },
     limit    => 25,
   });
-  template 'rss', { posts => \@pastes }, { layout => undef };
+  template 'rss', { pastes => \@pastes }, { layout => undef };
+};
+
+# should be /recent but that conflicts with a possible token
+get '/hist' => sub {
+  my @pastes = database->quick_select(pastes => {}, {
+    order_by => { desc => 'created' },
+    limit    => 25,
+  });
+  template 'list', { pastes => \@pastes, title => 'recent pastes' };
+};
+
+get '/by/:author' => sub {
+  my @pastes = database->quick_select(pastes =>
+    { author => params->{author} },
+    { order_by => { desc => 'created' } },
+  );
+
+  if (@pastes) {
+    template 'list', {
+      pastes => \@pastes,
+      title => 'pastes by ' . params->{author},
+    };
+  } else {
+    status 'not_found';
+    template '404';
+  }
 };
 
 get '/:token.txt' => sub {
@@ -58,23 +84,6 @@ get '/:token.txt' => sub {
 get '/:token' => sub {
   if (my $paste = database->quick_select(pastes => {token => params->{token}})) {
     template 'view', $paste;
-  } else {
-    status 'not_found';
-    template '404';
-  }
-};
-
-get '/by/:author' => sub {
-  my @pastes = database->quick_select(pastes => 
-    { author => params->{author} },
-    { order_by => { desc => 'created' } },
-  );
-
-  if (@pastes) {
-    template 'list', { 
-      pastes => \@pastes,
-      author => params->{author},
-    };
   } else {
     status 'not_found';
     template '404';

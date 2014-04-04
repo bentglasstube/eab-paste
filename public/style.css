@@ -1,48 +1,24 @@
-body {
-  margin: 0;
-  padding: 1em;
-}
-
 h1 {
-  margin: 0 0 0.3em 0;
-  font-size: 1.5em;
-  font-weight: bold;
+  margin-bottom: 1em;
 }
 
-h2 {
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal;
-  font-style: oblique;
-}
-
-p {
-  font-family: monospace;
-  white-space: pre-wrap;
-}
-
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-form {
-  margin: 0;
-  padding: 0;
-}
-
-label {
-  display: block;
-}
-
-input {
-  display: block;
-  border: 1px solid #000;
-  background: #fff;
-}
-
-ul {
+ul.options {
   list-style: none;
+  margin: 2em 0 0;
   padding: 0;
+  text-align: center;
+}
+
+ul.options li {
+  display: inline-block;
+  border-left: 1px solid #bbb;
+  padding: 0 1em;
+}
+
+ul.options li:first-child {
+  border-left: none;
+}
+
+h2 small {
+  float: right;
 }

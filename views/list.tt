@@ -1,6 +1,7 @@
-<h1>all pastes by [% author | html %]</h1>
-<ul>
-  [% foreach paste in pastes %]
-  <li><a href="/[% paste.token %]">[% paste.title | html %]</a></li>
-  [% end %]
-</ul>
+<h1>[% title | html %]</h1>
+[% foreach paste in pastes %]
+<h2>
+  <a href="/[% paste.token %]">[% paste.title | html %]</a>
+  [% include ago.tt time = paste.created %]
+</h2>
+[% end %]

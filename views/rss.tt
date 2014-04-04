@@ -4,7 +4,7 @@
     <title>#eatabrick pastes</title>
     <link>http://paste.eatabrick.org/rss</link>
     <description>pastes for #eatabrick</description>
-    [% for entry in posts %]
+    [% for entry in pastes %]
       <item>
         <title>[% entry.title %]</title>
         <link>http://paste.eatabrick.org/[% entry.token %]</link>

@@ -1,14 +1,31 @@
-<h1>#eatabrick pastes</h1>
-<form method="post" action="/" enctype="multipart/form-data">
-  <fieldset>
-    <label for="title">title</label>
-    <input id="title" name="title">
-    <label for="author">author</label>
-    <input id="author" name="author">
+<h1>new</h1>
+
+<form method="post" action="/" enctype="multipart/form-data" role="form">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="title">title</label>
+        <input class="form-control" id="title" name="title">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="author">author</label>
+        <input class="form-control" id="author" name="author">
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <span class="help-block">
+      either upload a file or paste content in the textarea.  if you do both
+      the file will be used and whatever you pasted will be lost forever
+    </span>
     <label for="file">file</label>
     <input type="file" id="file" name="file">
+  </div>
+  <div class="form-group">
     <label for="paste">content</label>
-    <textarea id="paste" name="paste" rows="24" cols="80"></textarea>
-    <input type="submit" value="paste">
-  </fieldset>
+    <textarea class="form-control" id="paste" name="paste" rows="24"></textarea>
+  </div>
+  <button class="btn btn-default" type="submit">paste</button>
 </form>
