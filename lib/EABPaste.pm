@@ -19,13 +19,10 @@ post '/' => sub {
     $content = params->{paste};
   }
 
-  my $title = params->{title} || 'untitled';
-  my $author = params->{author} || 'anonymous';
-
   database->quick_insert(pastes => {
     token   => $token,
-    title   => $title,
-    author  => $author,
+    title   => params->{title} || 'untitled',
+    author  => params->{author} || 'anonymous',
     data    => $content,
     created => time,
   });
