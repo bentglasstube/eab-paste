@@ -33,6 +33,19 @@ post '/' => sub {
   redirect "/$token", 303;
 };
 
+get '/search' => sub {
+  my $query = params->{'q'};
+
+  my @pastes = database->quick_select(pastes => {
+    title => { like => "%$query%" },
+  }, {
+    order_by => { desc => 'created' },
+    limit => 25,
+  });
+
+  template 'list', { pastes => \@pastes, title => 'search results' };
+};
+
 get '/rss' => sub {
   content_type 'text/xml';
   my @pastes = database->quick_select(pastes => {}, {

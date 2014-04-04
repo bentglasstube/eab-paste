@@ -5,3 +5,7 @@
   [% include ago.tt time = paste.created %]
 </h2>
 [% end %]
+
+[% if pastes.size == 0 %]
+  <p>nothing to see here</p>
+[% end %]
