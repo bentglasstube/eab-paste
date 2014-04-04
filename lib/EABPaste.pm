@@ -1,7 +1,6 @@
 package EABPaste;
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
-use Dancer::Plugin::IRCNotice;
 
 our $VERSION = '0.1';
 
@@ -30,8 +29,6 @@ post '/' => sub {
     data    => $content,
     created => time,
   });
-
-  notify("\cB$title\cB @ http://paste.eatabrick.org/$token ($author)");
 
   redirect "/$token", 303;
 };
