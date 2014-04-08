@@ -1,6 +1,10 @@
 <h1>[% title | html %] <small>by <a href="/by/[% author | url %]">[% author | html %]</a></small></h1>
 
-<pre>[% data | html %]</pre>
+<div class="options">
+  <button type="button" class="btn btn-default" id="wrap">wrap lines</button>
+</div>
+
+<pre id="paste">[% data | html %]</pre>
 
 <ul class="options">
   <li><a href="[% token %].txt">view raw</a></li>

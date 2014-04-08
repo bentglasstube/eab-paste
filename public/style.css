@@ -30,3 +30,19 @@ ul.nav {
 .tab-pane {
   padding-top: 1em;
 }
+
+div.options {
+  text-align: right;
+  margin-top: -5em;
+  margin-bottom: 1em;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+
+pre.wrap {
+  word-break: break-all;
+  word-wrap: break-word;
+}
