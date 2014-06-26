@@ -6,7 +6,7 @@
     <description>pastes for #eatabrick</description>
     [% for entry in pastes %]
       <item>
-        <title>[% entry.title %]</title>
+        <title>[% entry.title | html %]</title>
         <link>http://paste.eatabrick.org/[% entry.token %]</link>
         <author>[% entry.author %]</author>
       </item>
