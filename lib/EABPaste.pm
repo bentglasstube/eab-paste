@@ -9,6 +9,27 @@ use Dancer::Plugin::Database;
 
 our $VERSION = '0.1';
 
+if ($ENV{DATABASE_URL}) {
+  warning "Database URL: $ENV{DATABASE_URL}";
+
+  my ($scheme, $user, $pass, $host, $port, $path) =
+    ($ENV{DATABASE_URL} =~ m|^(\w+)://(.+?):(.+?)@(.+?):(\d+?)/(\w+)$|);
+
+  my $driver = '';
+  if ($scheme eq 'postgres') {
+    $driver = 'Pg';
+  }
+
+  config->{plugins}{Database} = {
+    driver   => $driver,
+    database => $path,
+    host     => $host,
+    port     => $port,
+    username => $user,
+    password => $pass,
+  };
+}
+
 get '/' => sub {
   template 'index';
 };

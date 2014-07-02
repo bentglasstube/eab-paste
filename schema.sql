@@ -1,11 +1,11 @@
 create table if not exists pastes (
-  token   text    not null primary key,
-  title   text    not null,
-  author  text    not null,
-  data    text    not null,
-  created integer not null
+  token   varchar(16)  not null primary key,
+  title   varchar(100) not null,
+  author  varchar(50)  not null,
+  data    text         not null,
+  created integer      not null
 );
 
-create index if not exists created_desc on pastes (
+create index created_desc on pastes (
   created desc
 );
