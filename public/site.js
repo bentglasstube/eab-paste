@@ -7,4 +7,8 @@ $(function() {
       $('#paste').removeClass('wrap');
     }
   });
+
+  $('#paste').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
 });
