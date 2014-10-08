@@ -4,4 +4,5 @@ requires 'DBD::Pg';
 requires 'Dancer';
 requires 'Dancer::Plugin::Database';
 requires 'Template';
+requires 'Template::Plugin::Time::Duration';
 requires 'YAML';

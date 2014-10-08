@@ -1,8 +1,14 @@
+[% use date %]
+[% use Time.Duration %]
+
 <h1>[% title | html %]</h1>
 [% foreach paste in pastes %]
 <h2>
   <a href="/[% paste.token %]">[% paste.title | html %]</a>
-  [% include ago.tt time = paste.created %]
+
+  <small title="[% date.format(paste.created, '%Y-%m-%d %H:%M:%S') %]">
+    [% Time.Duration.ago(date.now - paste.created, 1) %]
+  </small>
 </h2>
 [% end %]
 
