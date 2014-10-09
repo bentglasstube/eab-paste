@@ -13,3 +13,4 @@ plugins:
     nick: 'eab-pastes'
     name: 'Dancer::Plugin::IRCNotice'
     channel: '#eatabrick'
+    type: 'message'
