@@ -7,3 +7,9 @@ engines:
     encoding:  'utf8'
     start_tag: '[%'
     end_tag:   '%]'
+plugins:
+  IRCNotice:
+    host: 'chat.freenode.net'
+    nick: 'eab-pastes'
+    name: 'Dancer::Plugin::IRCNotice'
+    channel: '#eatabrick'

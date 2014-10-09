@@ -3,9 +3,11 @@ package EABPaste;
 use 5.010;
 use strict;
 use warnings;
+use threads;
 
 use Dancer ':syntax';
 use Dancer::Plugin::Database;
+use Dancer::Plugin::IRCNotice;
 
 our $VERSION = '0.1';
 
@@ -45,14 +47,21 @@ post '/' => sub {
     $content = param('paste');
   }
 
+  my $title = param('title') || 'untitled';
+  my $author = param('author') || 'anonymous';
+
   database->quick_insert(
     pastes => {
       token   => $token,
-      title   => param('title') || 'untitled',
-      author  => param('author') || 'anonymous',
+      title   => $title,
+      author  => $author,
       data    => $content,
       created => time,
     });
+
+  async {
+    notify("$title @ http://paste.eatabrick.org/$token ($author)");
+  }->detach();
 
   redirect "/$token", 303;
 };
